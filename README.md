@@ -27,6 +27,6 @@ dataroot: str, e.g. /path/Chikusei.mat
 
 dataname: str, e.g. Chikusei
 
-resume_state: str, e.g. /path/
+resume_state: str, e.g. /path/I190000_E97
 
 
