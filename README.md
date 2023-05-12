@@ -3,7 +3,7 @@ Official codes of "Unsupervised Pansharpening via Low-rank Diffusion Model"
 
 [paper](https://github.com/xyrui/PLRDiff)
 
-## <i class="fa-solid fa-database"></i> Load pretrained Model 
+## <img src="http://www.w3.org/2000/svg" width="20" height="20"> Load pretrained Model 
 Pretrained diffusion model can be downloaded from
 
 [https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs)
