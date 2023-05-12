@@ -14,6 +14,8 @@ Houston: [https://hyperspectral.ee.uh.edu/?page id=459](https://hyperspectral.ee
 
 Pavia: [https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
+WV3: [https://github.com/liangjiandeng/PanCollection#1--the-training-and-testing-datasets-for-worldview-3](https://github.com/liangjiandeng/PanCollection#1--the-training-and-testing-datasets-for-worldview-3)
+
 ## Prepare test dataset
 
 ## Testing
