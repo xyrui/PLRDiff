@@ -1,6 +1,11 @@
 # PLRDiff
 Official codes of "Unsupervised Pansharpening via Low-rank Diffusion Model"
 
+## Load pretrained Model
+Pretrained diffusion model can be downloaded from
+
+[[https://github.com/wgcban/ddpm-cd](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs)]([https://github.com/wgcban/ddpm-cd](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs))
+
 ## Download Dataset
 
 Chikusei: [https://naotoyokoya.com/Download.html](https://naotoyokoya.com/Download.html)
@@ -17,5 +22,9 @@ run ``python3 test_single.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (res
 gpu: int
 
 dataroot: str, e.g. /path/Chikusei.mat
+
+dataname: str, e.g. Chikusei
+
+resume_state: str, e.g. /path/
 
 
