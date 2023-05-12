@@ -19,6 +19,7 @@ WV3: [https://github.com/liangjiandeng/PanCollection#1--the-training-and-testing
 ## Prepare test dataset
 
 ## Testing
+### Single HSI testing
 run ``python3 test_single.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resume_state)``
 
 gpu: int
