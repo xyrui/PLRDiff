@@ -14,4 +14,8 @@ Pavia: [https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scen
 ## Testing
 run ``python3 test_single.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resume_state)``
 
+gpu: int
+
+dataroot: str, e.g. /path/Chikusei.mat
+
 
