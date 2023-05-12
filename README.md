@@ -35,3 +35,6 @@ resume_state: str, e.g. /path/I190000_E97
 ### A list of HSIs testing
 run ``python3 test_list.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resume_state)``
 
+## Connections
+<a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a>
+
