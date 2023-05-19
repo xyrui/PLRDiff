@@ -1,7 +1,7 @@
 # PLRDiff
 Official codes of "**Unsupervised Pansharpening via Low-rank Diffusion Model**" 
 
-[paper](https://arxiv.org/pdf/2305.10925.pdf)
+[paper (arxiv)](https://arxiv.org/pdf/2305.10925.pdf)
 
 ## Load pretrained Model 
 Pretrained diffusion model can be downloaded from
