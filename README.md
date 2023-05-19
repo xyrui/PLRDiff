@@ -6,7 +6,7 @@ Official codes of "**Unsupervised Pansharpening via Low-rank Diffusion Model**"
 ## Load pretrained Model 
 Pretrained diffusion model can be downloaded from
 
-[https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs)
+[https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs](https://arxiv.org/pdf/2305.10925.pdf)
 
 ## Download Dataset
 
