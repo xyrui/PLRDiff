@@ -375,8 +375,8 @@ class GaussianDiffusion:
         if noise is not None:
             img = noise
         else:
-            img = th.randn((Bb, Rr, Hh, Ww), device=device) # 初始大小是[B, r, H, W]
-        indices = list(range(self.num_timesteps))[::-1] # 反序的
+            img = th.randn((Bb, Rr, Hh, Ww), device=device) 
+        indices = list(range(self.num_timesteps))[::-1] 
 
         if progress:
             from tqdm.auto import tqdm
@@ -425,7 +425,7 @@ class GaussianDiffusion:
 
             norm_gradX = grad(outputs=norm1 + (param['eta2']/param['eta1'])*norm2, inputs=img)[0] 
 
-            out["sample"] = out["sample"] - param['eta1']*norm_gradX # 原文(14)式
+            out["sample"] = out["sample"] - param['eta1']*norm_gradX 
                 
             del norm_gradX
            
