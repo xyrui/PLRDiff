@@ -32,15 +32,15 @@ if __name__ == "__main__":
     parser.add_argument('-dr', '--dataroot', type=str, default='') # dataroot with 
     parser.add_argument('-bs', '--batch_size', type=int, default=1)
     parser.add_argument('-sr', '--savedir', type=str, default='./results')
-    parser.add_argument('-eta1', '--eta1', type=float, default=1)
-    parser.add_argument('-eta2', '--eta2', type=float, default=2)
+    parser.add_argument('-eta1', '--eta1', type=float, default=1)  # trade off parameters 1
+    parser.add_argument('-eta2', '--eta2', type=float, default=2)  # trade off parameters 2
     parser.add_argument('-seed', '--seed', type=int, default=0)
     parser.add_argument('-dn', '--dataname', type=str, default='') # dataname: used for save output
-    parser.add_argument('-step', '--step', type=int, default=1000)
-    parser.add_argument('-scale', '--scale', type=int, default=4)
-    parser.add_argument('-ks', '--kernelsize', type=int, default=9)
-    parser.add_argument('-sig', '--sig', type=float, default=None)
-    parser.add_argument('-sn', '--samplenum', type=int, default=1)
+    parser.add_argument('-step', '--step', type=int, default=1000) # diffusion steps
+    parser.add_argument('-scale', '--scale', type=int, default=4)  # downsample scale
+    parser.add_argument('-ks', '--kernelsize', type=int, default=9) # kernel size
+    parser.add_argument('-sig', '--sig', type=float, default=None) # kernel variance
+    parser.add_argument('-sn', '--samplenum', type=int, default=1) # sample number 
     parser.add_argument('-rs', '--resume_state', type=str, default='')  # path: pretrained model
 
     ## parse configs
