@@ -3,7 +3,7 @@ Official codes of "**Unsupervised Pansharpening via Low-rank Diffusion Model**"
 
 [paper (arxiv)](https://arxiv.org/pdf/2305.10925.pdf)
 
-## <i class=\"sidebar-button-icon fa-solid fa-tags\" aria-hidden=\"true\"></i> Load pretrained Model 
+## <i class="fa fa-weixin"></i> Load pretrained Model 
 Pretrained diffusion model can be downloaded from
 
 [https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs)
@@ -37,4 +37,10 @@ run ``python3 test_list.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resum
 
 ## Connections
 <a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a>
+
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
