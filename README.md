@@ -19,6 +19,7 @@ Pavia: [https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scen
 WV3: [https://github.com/liangjiandeng/PanCollection#1--the-training-and-testing-datasets-for-worldview-3](https://github.com/liangjiandeng/PanCollection#1--the-training-and-testing-datasets-for-worldview-3)
 
 ## Prepare test dataset
+Use the ``generate_data.m" to generate test data.
 
 ## Testing
 ### Single HSI testing
