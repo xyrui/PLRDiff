@@ -1,5 +1,5 @@
 # PLRDiff
-Official codes of "**Unsupervised Pansharpening via Low-rank Diffusion Model**" 
+Official codes of "**Unsupervised Hyperspectral Pansharpening via Low-rank Diffusion Model**" 
 
 [paper (arxiv)](https://arxiv.org/pdf/2305.10925.pdf)
 
@@ -14,16 +14,14 @@ Chikusei: [https://naotoyokoya.com/Download.html](https://naotoyokoya.com/Downlo
 
 Houston: [https://hyperspectral.ee.uh.edu/?page id=459](https://hyperspectral.ee.uh.edu/?page_id=459)
 
-Pavia: [https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes](https://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
-
-WV3: [https://github.com/liangjiandeng/PanCollection#1--the-training-and-testing-datasets-for-worldview-3](https://github.com/liangjiandeng/PanCollection#1--the-training-and-testing-datasets-for-worldview-3)
+Pavia: [https://github.com/liangjiandeng/HyperPanCollection](https://github.com/liangjiandeng/HyperPanCollection)
 
 ## Prepare test dataset
 Use data/generate_data.m to generate test data.
 
 ## Testing
 ### Single HSI testing
-run ``python3 test_single.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resume_state)``
+run ``python3 demo.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resume_state)``
 
 gpu: int
 
@@ -32,9 +30,6 @@ dataroot: str, e.g. /path/Chikusei.mat
 dataname: str, e.g. Chikusei
 
 resume_state: str, e.g. /path/I190000_E97
-
-### A list of HSIs testing
-run ``python3 test_list.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resume_state)``
 
 ## Connections
 <a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a>
