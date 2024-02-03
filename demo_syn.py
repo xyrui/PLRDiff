@@ -20,13 +20,6 @@ from torch.utils.data import DataLoader
 import torch.utils.data as uData
 import time
 
-def blur_kernel(shape, var):
-    assert shape%2==1
-    mu = int((shape - 1)/2) 
-    XX, YY = np.meshgrid(np.arange(shape), np.arange(shape))
-    out = np.exp((-(XX-mu)**2-(YY-mu)**2)/(2*var**2))
-    return np.float32(out/out.sum())
-
 def my_psnr(X,Y):
     ch = X.shape[-1]
     psnr = 0
