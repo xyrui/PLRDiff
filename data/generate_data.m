@@ -20,9 +20,5 @@ LRMS = imresize(LRMS, 1/ratio, "bicubic"); % downsampling  % The imresize operat
 % PAN = mean(HRMS(:,:,1:100), 3); % Pavia
 % PAN = mean(HRMS(:,:,21:87), 3); % Houston (Houston: discard the first 20 bands)
 PAN = mean(HRMS(:,:,16:81), 3); % Chikusei (Chikusei: discard the first 15 bands)
-% 
-H = zeros(1, C);
-H(16:81) = 1;
-H = H/sum(H(:));
 
-save('Chikusei.mat','HRMS','LRMS','PAN','H');
+save('Chikusei.mat','HRMS','LRMS','PAN');
