@@ -17,19 +17,23 @@ Houston: [https://hyperspectral.ee.uh.edu/?page id=459](https://hyperspectral.ee
 Pavia: [https://github.com/liangjiandeng/HyperPanCollection](https://github.com/liangjiandeng/HyperPanCollection)
 
 ## Prepare test dataset
-Use data/generate_data.m to generate test data.
+Use data/generate_data.m to generate test data for Chikusei and Houston. Pavia can be directly downloaded for use. 
 
 ## Testing
 ### Single HSI testing
-run ``python3 demo.py -gpu '(gpu)' -dr (dataroot) -dn (dataname) -rs (resume_state)``
+run ``python3 demo_syn.py -res opt``
 
-gpu: int
+there are several options you can set:
 
-dataroot: str, e.g. /path/Chikusei.mat
+-gpu: int
 
-dataname: str, e.g. Chikusei
+-dn: dataname,str. e.g. 'Chikusei_test'
 
-resume_state: str, e.g. /path/I190000_E97
+-krtype: int. Set 0 for the first time in order to estimate kernel and srf. Set 1 if you have already save them in './estKR'.
+
+-res: str. Set 'opt' for estimating the residual and 'no' for R=0.
+
+Other options include eta1, eta2, scale, ks, step, accstep. Please refer to demo_syn.py.
 
 ## Connections
 <a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a>
