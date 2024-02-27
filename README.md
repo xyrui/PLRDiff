@@ -1,5 +1,9 @@
-# PLRDiff
-Official codes of "**Unsupervised Hyperspectral Pansharpening via Low-rank Diffusion Model**" (Information Fusion 2024)
+# Unsupervised Hyperspectral Pansharpening via Low-rank Diffusion Model (Information Fusion 2024)
+<p align="center">
+    Xiangyu Rui, Xiangyong Cao, Li Pang, Zeyu Zhu, Zongsheng Yue, Deyu Meng
+</p>
+
+<p align="center">
 
 [paper (arxiv)](https://arxiv.org/pdf/2305.10925.pdf)
 
