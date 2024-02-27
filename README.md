@@ -1,6 +1,6 @@
 # Unsupervised Hyperspectral Pansharpening via Low-rank Diffusion Model (Information Fusion 2024)
 <p align="center">
-    Xiangyu Rui, [Xiangyong Cao](https://github.com/xiangyongcao), Li Pang, [Zeyu Zhu](https://github.com/Zeyu-Zhu), [Zongsheng Yue](https://github.com/zsyOAOA), [Deyu Meng](https://gr.xjtu.edu.cn/web/dymeng)
+    Xiangyu Rui, <a href="https://github.com/xiangyongcao">Xiangyong Cao</a>, Li Pang, [Zeyu Zhu](https://github.com/Zeyu-Zhu), [Zongsheng Yue](https://github.com/zsyOAOA), [Deyu Meng](https://gr.xjtu.edu.cn/web/dymeng)
 </p>
 
 <p align="center">
