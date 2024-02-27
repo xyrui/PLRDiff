@@ -1,5 +1,5 @@
 # PLRDiff
-Official codes of "**Unsupervised Hyperspectral Pansharpening via Low-rank Diffusion Model**" 
+Official codes of "**Unsupervised Hyperspectral Pansharpening via Low-rank Diffusion Model**" (Information Fusion 2024)
 
 [paper (arxiv)](https://arxiv.org/pdf/2305.10925.pdf)
 
