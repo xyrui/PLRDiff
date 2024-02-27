@@ -159,7 +159,7 @@ class Param(th.nn.Module):
     def forward(self,):
         return self.E
 
-class Sgdopt(th.nn.Module):
+class Sgdopt(th.nn.Module): 
     def __init__(self, init):
         super(Sgdopt, self).__init__()
         self.X = th.nn.parameter.Parameter(init)
@@ -411,21 +411,22 @@ class GaussianDiffusion:
         LRHS = model_condition["LRHS"]
         PAN = model_condition["PAN"]
 
-        blur = partial(nF.conv2d, weight=param['kernel'], padding=int((param['k_s'] - 1)/2), groups=Cc)
+        blur = partial(nF.conv2d, weight=param['kernel'], padding=int((param['k_s'] - 1)/2), groups=Cc) 
         down = lambda x : x[:,:,::param['scale'], ::param['scale']]
 
-        ## estimate coefficient matrix E   
+        ## estimate coefficient matrix E (on cpu)
         bimg = th.index_select(LRHS, 1, Eband).reshape(Bb, Rr, -1).cpu() # base tensor from LRHS
         # estimate coefficient matrix E by solving least square problem
-        t1 = th.matmul(bimg, bimg.transpose(1,2)) + 1e-4*th.eye(Rr).type(bimg.dtype)#.to(device)
+        t1 = th.matmul(bimg, bimg.transpose(1,2)) + 1e-4*th.eye(Rr).type(bimg.dtype)
         t2 = th.matmul(LRHS.reshape(Bb, Cc, -1).cpu(), bimg.transpose(1,2))
         E = th.matmul(t2, th.inverse(t1)).to(device)  
 
-        LRHS_l = th.matmul(E, bimg.to(device)).reshape(*LRHS.shape) # Y_l
-        res_l = LRHS - LRHS_l # D(B(R))
+        LRHS_l = th.matmul(E, bimg.to(device)).reshape(*LRHS.shape) # Y_l: low rank component of LRHS
+        res_l = LRHS - LRHS_l # D(B(R)): downsampled blured residual part
         del bimg, t1, t2
-        
-        if res == "opt":
+
+        # Set residual part R
+        if res == "opt":  # optimize ||D(B(R)) - res_l||_F^2 to get R
             print('Estimate residual by optimization!')
             SGDopt = Sgdopt(nF.interpolate(res_l, [Hh, Ww], mode='bicubic')).cuda()
             optimizer = optim.SGD(SGDopt.parameters(), lr=3)
@@ -436,10 +437,10 @@ class GaussianDiffusion:
                 loss.backward()
                 optimizer.step()
             add_res = SGDopt().detach()
-        elif res == "itp": # interpolate
+        elif res == "itp": # interpolate res_l to get R
             print('Estimate residual by interpolatation!')
             add_res = nF.interpolate(res_l, [Hh, Ww], mode='bicubic').to(device)
-        else:
+        else: # R=0
             print('No residual !')
             add_res = 0
 
@@ -448,7 +449,8 @@ class GaussianDiffusion:
 
             # re-instantiate requires_grad for backpropagation
             img = img.requires_grad_()
-            
+
+            # Algorithm 1 line 2: sample A_{t-1} from p(A_{t-1}|A_t)
             if sample_method == 'ddpm':
                 out = self.ddpm_sample(
                     model,
@@ -457,24 +459,24 @@ class GaussianDiffusion:
                     clip_denoised=clip_denoised,
                     denoised_fn=denoised_fn
                 )
-
         
-            baseA = (out["pred_xstart"] +1)/2  # base tensor A
+            baseA = (out["pred_xstart"] +1)/2  # base tensor A = \hat{A}_0 (img ranges in [-1,1]. here we move out["pred_xstart"] back to range [0,1])
 
-            xhat_1 = th.matmul(E, baseA.reshape(Bb, Rr, -1)).reshape(*shape) + add_res
+            xhat_1 = th.matmul(E, baseA.reshape(Bb, Rr, -1)).reshape(*shape) + add_res  # \hat{X}_0 = Ax_3 E + R
 
             xhat_2 = blur(xhat_1) 
-            xhat_3 = down(xhat_2)  
-            norm1 = th.norm(LRHS - xhat_3) 
-                
+            xhat_3 = down(xhat_2) # D(B(\hat{X}))
+            norm1 = th.norm(LRHS - xhat_3) # ||Y - D(B(Ax_3 E + R))||
 
-            xhat_4 = th.matmul((xhat_1).permute(0,2,3,1), param["PH"]).permute(0,3,1,2) # HEX
-            norm2 = th.norm(PAN - xhat_4) # ||P - HEX||
-            
+            xhat_4 = th.matmul((xhat_1).permute(0,2,3,1), param["PH"]).permute(0,3,1,2) # \hat{X}_3 r
+            norm2 = th.norm(PAN - xhat_4) # ||P - \hat{X}_3 r||
+
+            # Algorithm 1 line 4
             likelihood = norm1 + (param['eta2']/param['eta1'])*norm2
             norm_gradX = grad(outputs=likelihood, inputs=img)[0] 
-         
-            out["sample"] = out["sample"] - param['eta1']*norm_gradX # 原文(14)式
+
+            # Algorithm 1 line 5
+            out["sample"] = out["sample"] - param['eta1']*norm_gradX # 
             
             del norm_gradX, baseA
             
