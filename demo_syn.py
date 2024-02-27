@@ -20,7 +20,7 @@ from torch.utils.data import DataLoader
 import torch.utils.data as uData
 import time
 
-def my_psnr(X,Y):
+def my_psnr(X,Y): 
     ch = X.shape[-1]
     psnr = 0
     for i in range(ch):
@@ -31,20 +31,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--baseconfig', type=str, default='base.json',
                         help='JSON file for creating model and diffusion')
-    parser.add_argument('-gpu', '--gpu_ids', type=str, default="1")
-    parser.add_argument('-sr', '--savedir', type=str, default='./results')
-    parser.add_argument('-eta1', '--eta1', type=float, default=2)
-    parser.add_argument('-eta2', '--eta2', type=float, default=2)
-    parser.add_argument('-rank', '--rank', type=int, default=3)
-    parser.add_argument('-seed', '--seed', type=int, default=0)
-    parser.add_argument('-dn', '--dataname', type=str, default="Chikusei")
-    parser.add_argument('-step', '--step', type=int, default=500)
-    parser.add_argument('-accstep', '--accstep', type=int, default=500)
-    parser.add_argument('-krtype', '--krtype', type=int, default=1) # how to get the kernel and srf
-    parser.add_argument('-sn', '--samplenum', type=int, default=1)
-    parser.add_argument('-scale', '--scale', type=int, default=4)  # downsampling scale
-    parser.add_argument('-ks', '--ks', type=int, default=11)       # kernel size
-    parser.add_argument('-res', '--res', type=str, default="no")   # no: no residual ; opt: estimate residual
+    parser.add_argument('-gpu', '--gpu_ids', type=str, default="1")    
+    parser.add_argument('-sr', '--savedir', type=str, default='./results')   # where to save the restored images
+    parser.add_argument('-eta1', '--eta1', type=float, default=2)            # parameter eta_1
+    parser.add_argument('-eta2', '--eta2', type=float, default=2)            # parameter eta_2
+    parser.add_argument('-rank', '--rank', type=int, default=3)              # subspace dimension; low rank parameter s
+    parser.add_argument('-seed', '--seed', type=int, default=0)          
+    parser.add_argument('-dn', '--dataname', type=str, default="Chikusei")   
+    parser.add_argument('-step', '--step', type=int, default=500)            # Original total sampling step (divisible by accstep)
+    parser.add_argument('-accstep', '--accstep', type=int, default=500)      # Actual sampling step (less than step)
+    parser.add_argument('-krtype', '--krtype', type=int, default=1)          # how to get the kernel and srf: '0' for estimate, '1' for download
+    parser.add_argument('-sn', '--samplenum', type=int, default=1)  
+    parser.add_argument('-scale', '--scale', type=int, default=4)            # downsampling scale
+    parser.add_argument('-ks', '--ks', type=int, default=11)                 # kernel size
+    parser.add_argument('-res', '--res', type=str, default="no")             # how to set residual: 'no' for no residual, 'opt' for estimating residual
     parser.add_argument('-sample_method', '--sample_method', type=str, default='ddpm')
 
     parser.add_argument('-rs', '--resume_state', type=str, default='/blabla/I190000_E97')  # where you put the loaded diffusion model 
