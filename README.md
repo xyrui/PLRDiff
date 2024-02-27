@@ -40,11 +40,5 @@ there are several options you can set:
 Other options include eta1, eta2, scale, ks, step, accstep. Please refer to demo_syn.py.
 
 ## Connections
-<a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a>
-
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a> 
 
