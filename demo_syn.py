@@ -86,29 +86,29 @@ if __name__ == "__main__":
  
     ## params
     param = dict()
-    param['scale'] = opt['scale']
-    param['eta1'] = opt['eta1']
-    param['eta2'] = opt['eta2']
+    param['scale'] = opt['scale'] # downsampling scale
+    param['eta1'] = opt['eta1']   # parameter eta_1
+    param['eta2'] = opt['eta2']   # parameter eta_2
 
-    param['k_s'] = opt['ks']
+    param['k_s'] = opt['ks']      # kernel size
 
     ## load img
     dataroot = join('./data', dname+'.mat')
     data = sio.loadmat(dataroot)
-    HRHS = th.from_numpy(np.float32(data['HRHS']))
+    HRHS = th.from_numpy(np.float32(data['HRMS']))
     ms, Ch = HRHS.shape[0], HRHS.shape[-1]
-    HRHS = HRHS.permute(2,0,1).unsqueeze(0)
+    HRHS = HRHS.permute(2,0,1).unsqueeze(0) # [1, Ch, ms, ms]
     
     Rr = opt['rank']  # spectral dimensironality of subspace
 
     # select bands
-    inters = int((Ch+1)/(Rr+1))
+    inters = int((Ch+1)/(Rr+1)) # interval
     selected_bands = [(t+1)*inters-1 for t in range(Rr)]
     param['Band'] = th.Tensor(selected_bands).type(th.int).to(device)  
 
-    PAN = th.from_numpy(np.float32(data['PAN'])).unsqueeze(0).unsqueeze(0)
+    PAN = th.from_numpy(np.float32(data['PAN'])).unsqueeze(0).unsqueeze(0) # [1,1,ms,ms]
     
-    LRHS = th.from_numpy(np.float32(data['LRHS'])).permute(2,0,1).unsqueeze(0)
+    LRHS = th.from_numpy(np.float32(data['LRMS'])).permute(2,0,1).unsqueeze(0) # [1, Ch, ms/scale, ms/scale]
 
     model_condition = {'LRHS': LRHS.to(device), 'PAN': PAN.to(device)}
 
@@ -120,9 +120,10 @@ if __name__ == "__main__":
         from guided_diffusion.estKR import estKR
         Estkr = estKR(LRHS, PAN, param['k_s'])
         kernel, PH = Estkr.start_est()
+        
         # save the kernel and srf so that next time you can use opt['krtype']==1 to directly load them
         sio.savemat("./estKR/KR_"+dname+".mat", {'kernel':kernel.numpy(), 'R':PH.squeeze(0).squeeze(0).numpy()})
-
+        
         kernel = kernel.repeat(Ch,1,1,1).to(device)
         PH = PH.to(device)
     elif opt['krtype'] == 1: # load kr from somewhere
@@ -130,10 +131,11 @@ if __name__ == "__main__":
         kernel = th.from_numpy(kr['kernel']).repeat(Ch,1,1,1).to(device)
         PH = th.from_numpy(kr['R']).unsqueeze(0).unsqueeze(0).to(device)
     
-    param['kernel'] = kernel.to(device)
-    param['PH'] = PH.to(device)
+    param['kernel'] = kernel.to(device) # kernel
+    param['PH'] = PH.to(device)         # srf
     
     start_time = time.time()
+    # sample: base tensor A     E: coefficient matrix E      add_res: R
     sample,E,add_res = diffusion.sample_loop(
         model,
         (1, Ch, ms, ms),
@@ -147,15 +149,15 @@ if __name__ == "__main__":
         res = args.res  # opt, itp
     )
     
-    sample = (sample + 1)/2
+    sample = (sample + 1)/2 # base tensor A: rescale from range [-1,1] to [0,1]
     ## im_out is the final restored HS image
-    im_out = th.matmul(E, sample.reshape(1, Rr, -1)).reshape(1, Ch, ms, ms) + add_res
+    im_out = th.matmul(E, sample.reshape(1, Rr, -1)).reshape(1, Ch, ms, ms) + add_res # Ax_3 E + R
     
     Ours_time = time.time() - start_time
-    im_out = im_out.cpu().squeeze(0).permute(1,2,0).numpy() 
+    im_out = im_out.cpu().squeeze(0).permute(1,2,0).numpy() # [ms, ms, Ch]
 
-    A = sample.cpu().squeeze(0).permute(1,2,0).numpy()  # base tensor
-    E = E.cpu().squeeze(0).numpy()  # coefficient matrix
+    A = sample.cpu().squeeze(0).permute(1,2,0).numpy()  # base tensor A: to numpy
+    E = E.cpu().squeeze(0).numpy()  # coefficient matrix E: to numpy
     
     nf = np.max(HRHS.squeeze(0).permute(1,2,0).numpy(), axis=(0,1), keepdims=True)
     psnr = my_psnr(HRHS.squeeze(0).permute(1,2,0).numpy()/nf, im_out/nf)
