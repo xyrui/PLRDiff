@@ -14,7 +14,6 @@ from os.path import join
 from skimage.metrics import peak_signal_noise_ratio as PSNR
 from skimage.metrics import structural_similarity as SSIM
 
-from guided_diffusion.core import imresize
 from math import sqrt, log, log10
 from torch.utils.data import DataLoader
 import torch.utils.data as uData
