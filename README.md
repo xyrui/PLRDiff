@@ -27,6 +27,8 @@ Use data/generate_data.m to generate test data for Chikusei and Houston. Pavia c
 ### Single HSI testing
 run ``python3 demo_syn.py -res opt``
 
+Before you running the script, please first download the pre-trained diffusion model, put it to your file and change the --resume in demo_syn.py.
+
 there are several options you can set:
 
 -gpu: int
@@ -37,7 +39,7 @@ there are several options you can set:
 
 -res: str. Set 'opt' for estimating the residual and 'no' for R=0.
 
-Other options include eta1, eta2, scale, ks, step, accstep. Please refer to demo_syn.py.
+Other options include eta1, eta2, scale, ks, step, accstep. Please refer to demo_syn.py. 
 
 ## Connections
 <a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a> 
