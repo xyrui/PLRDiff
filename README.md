@@ -5,7 +5,7 @@
 
 <p align="center">
 
-[paper (arxiv)](https://arxiv.org/pdf/2305.10925.pdf)
+[paper (arxiv draft)](https://arxiv.org/pdf/2305.10925.pdf)
 
 ## Load pretrained Model 
 Pretrained diffusion model can be downloaded from
