@@ -14,7 +14,7 @@ Pretrained diffusion model can be downloaded from
 
 ## Dataset
 ### Reproduce the results
-All datasets used in this work can be found in [Google Drive]{https://drive.google.com/drive/folders/161ExMLMeGTyckdyAGdGjN0hKe3ONemkD?usp=drive_link}. 
+All datasets used in this work can be found in [Google Drive](https://drive.google.com/drive/folders/161ExMLMeGTyckdyAGdGjN0hKe3ONemkD?usp=drive_link). 
 
 These datasets can be directly used to reproduce the results.
 
