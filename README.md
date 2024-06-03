@@ -12,7 +12,14 @@ Pretrained diffusion model can be downloaded from
 
 [https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs)
 
-## Download Dataset
+## Dataset
+### Reproduce the results
+All datasets used in this work can be found in [Google Drive]{https://drive.google.com/drive/folders/161ExMLMeGTyckdyAGdGjN0hKe3ONemkD?usp=drive_link}. 
+
+These datasets can be directly used to reproduce the results.
+
+### Origianl dataset links
+Here are the links to the original datasets. You can download them, crop the data and generate your own datasets if interested.
 
 Chikusei: [https://naotoyokoya.com/Download.html](https://naotoyokoya.com/Download.html)
 
@@ -20,8 +27,8 @@ Houston: [https://hyperspectral.ee.uh.edu/?page id=459](https://hyperspectral.ee
 
 Pavia: [https://github.com/liangjiandeng/HyperPanCollection](https://github.com/liangjiandeng/HyperPanCollection)
 
-## Prepare test dataset
-Use data/generate_data.m to generate test data for Chikusei and Houston. Pavia can be directly downloaded for use. 
+### How do we generate the datasets
+We generate our Chikusei and Houston datasets by 'data/generate_data.m'. Pavia can be directly downloaded from the above link for use. 
 
 ## Testing
 ### Single HSI testing
