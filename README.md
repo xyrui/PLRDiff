@@ -31,11 +31,12 @@ Pavia: [https://github.com/liangjiandeng/HyperPanCollection](https://github.com/
 We generate our Chikusei and Houston datasets by 'data/generate_data.m'. Pavia can be directly downloaded from the above link for use. 
 
 ## Testing
-### Single HSI testing
+### Run the code
 run ``python3 demo_syn.py -res opt``
 
 Before you running the script, please first download the pre-trained diffusion model, put it to your file and change the --resume in demo_syn.py.
 
+### Options
 there are several options you can set:
 
 -gpu: int
