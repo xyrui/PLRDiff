@@ -5,7 +5,7 @@
 
 <p align="center">
 
-[[Draft arxiv](https://arxiv.org/pdf/2305.10925.pdf)] [[Main formal](https://www.sciencedirect.com/science/article/abs/pii/S1566253524001039)]
+[[Main formal](https://www.sciencedirect.com/science/article/abs/pii/S1566253524001039)] [[Draft arxiv](https://arxiv.org/pdf/2305.10925.pdf)] 
 
 ## Load pretrained Model 
 Pretrained diffusion model can be downloaded from
