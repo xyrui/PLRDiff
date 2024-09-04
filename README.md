@@ -7,7 +7,12 @@
 
 [[Main formal](https://www.sciencedirect.com/science/article/abs/pii/S1566253524001039)] [[Draft arxiv](https://arxiv.org/pdf/2305.10925.pdf)] 
 
-![Flow](./imgs/main_pic.png)
+![Flowchat](./imgs/main_pic.png)
+Figure 1: The flowchart of the proposed method (PLRDiff). First, we estimate the coefficient matrix $E$ from the LRHS image. Second, the LRHS image, PAN image and the
+coefficient matrix E served as conditions are sent into a discretization of an SDE, where
+we reconstruct the base tensor A by gradually sampling through a series of parameterized
+distributions. Finally, the predicted A and E are multiplied to form the desired HRHS
+image.
 
 ## Load pretrained Model 
 Pretrained diffusion model can be downloaded from
