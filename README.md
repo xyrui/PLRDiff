@@ -14,20 +14,20 @@ we reconstruct the base tensor $\mathcal{A}$ by gradually sampling through a ser
 distributions. Finally, the predicted $\mathcal{A}$ and $E$ are multiplied to form the desired HRHS
 image.
 
-## Load pretrained Model 
+## 1. Load pretrained Model 
 Pretrained diffusion model can be downloaded from
 
 [https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs)
 
 *Retraining or finetuning this model is not mandatory. 
 
-## Dataset
+## 2. Dataset
 ### Reproduce the results
 All datasets used in this work can be found in [Google Driver](https://drive.google.com/drive/folders/161ExMLMeGTyckdyAGdGjN0hKe3ONemkD?usp=drive_link) or [BaiduCloud](https://pan.baidu.com/s/1LO43relnFtt9l-Tz0BhTpA?pwd=op0f). 
 
 These datasets can be directly used to reproduce the results presented in the manuscript.
 
-### Origianl dataset links
+### 2.1. Origianl dataset links
 Here are the links to the original datasets. You can download them, crop the data and generate your own datasets if interested.
 
 Chikusei: [https://naotoyokoya.com/Download.html](https://naotoyokoya.com/Download.html)
@@ -36,16 +36,16 @@ Houston: [https://hyperspectral.ee.uh.edu/?page id=459](https://hyperspectral.ee
 
 Pavia: [https://github.com/liangjiandeng/HyperPanCollection](https://github.com/liangjiandeng/HyperPanCollection)
 
-### How do we generate the datasets
+### 2.2. How do we generate the datasets
 We generate our Chikusei and Houston datasets by 'data/generate_data.m'. Pavia can be directly downloaded from the above link for use. 
 
-## Testing
-### Run the code
+## 3. Testing
+### 3.1. Run the code
 run ``python3 demo_syn.py -res opt``
 
 Before you running the script, please first download the pre-trained diffusion model, put it to your file and change the --resume in demo_syn.py.
 
-### Options
+### 3.2. Options
 there are several options you can set:
 
 -gpu: int
@@ -58,7 +58,7 @@ there are several options you can set:
 
 Other options include eta1, eta2, scale, ks, step, accstep. Please refer to demo_syn.py. 
 
-## Connections
+## 4. Connections
 Bless everyone's experiments.
 
 <a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a> 
