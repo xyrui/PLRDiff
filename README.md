@@ -59,7 +59,5 @@ there are several options you can set:
 Other options include eta1, eta2, scale, ks, step, accstep. Please refer to demo_syn.py. 
 
 ## 4. Connections
-Bless everyone's experiments.
-
 <a href="mailto:xyrui.aca@gmail.com">xyrui.aca@gmail.com</a> 
 
