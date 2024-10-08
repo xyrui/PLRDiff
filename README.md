@@ -50,7 +50,7 @@ there are several options you can set:
 
 -gpu: int
 
--dn: dataname,str. e.g. 'Chikusei_test'. The dataset should contain "HRMS", "LRMS" and "PAN". 
+-dn: dataname,str. e.g. 'Chikusei'. The dataset should contain "HRMS", "LRMS" and "PAN". 
 
 -krtype: int. Set 0 for the first time in order to estimate kernel and srf. Set 1 if you have already save them in './estKR'.
 
