@@ -17,7 +17,7 @@ image.
 ## 1. Load pretrained Model 
 Pretrained diffusion model can be downloaded from
 
-[https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs](https://github.com/wgcban/ddpm-cd#arrow_forwardpre-trained-models--trainvaltest-logs)
+[https://github.com/wgcban/ddpm-cd?tab=readme-ov-file#7-links-to-download-pre-trained-models](https://github.com/wgcban/ddpm-cd?tab=readme-ov-file#7-links-to-download-pre-trained-models)
 
 *Retraining or finetuning this model is not mandatory. 
 
