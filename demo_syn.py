@@ -39,7 +39,7 @@ if __name__ == "__main__":
     parser.add_argument('-dn', '--dataname', type=str, default="Chikusei")   
     parser.add_argument('-step', '--step', type=int, default=500)            # Original total sampling step (divisible by accstep)
     parser.add_argument('-accstep', '--accstep', type=int, default=500)      # Actual sampling step (less than step)
-    parser.add_argument('-krtype', '--krtype', type=int, default=1)          # how to get the kernel and srf: '0' for estimate, '1' for download
+    parser.add_argument('-krtype', '--krtype', type=int, default=0)          # how to get the kernel and srf: '0' for estimate, '1' for download
     parser.add_argument('-sn', '--samplenum', type=int, default=1)  
     parser.add_argument('-scale', '--scale', type=int, default=4)            # downsampling scale
     parser.add_argument('-ks', '--ks', type=int, default=11)                 # kernel size
