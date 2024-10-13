@@ -45,10 +45,7 @@ run ``python3 demo_syn.py -res opt``
 
 Before you running the script, please first download the pre-trained diffusion model, put it to your file and change the --resume in demo_syn.py.
 
-### 3.2. Options
-there are several options you can set:
-
--gpu: int
+### 3.2. Important Options
 
 -dn: dataname,str. e.g. 'Chikusei'. The dataset should contain "HRMS", "LRMS" and "PAN". 
 
