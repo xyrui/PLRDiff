@@ -52,7 +52,7 @@ there are several options you can set:
 
 -dn: dataname,str. e.g. 'Chikusei'. The dataset should contain "HRMS", "LRMS" and "PAN". 
 
--krtype: int. Set 0 for the first time in order to estimate kernel and srf. Set 1 if you have already save them in './estKR'.
+**-krtype: int. Set 0 for the first time in order to estimate kernel and srf. Set 1 if you have already save them in './estKR'.**
 
 -res: str. Set 'opt' for estimating the residual and 'no' for R=0.
 
