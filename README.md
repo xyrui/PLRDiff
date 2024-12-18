@@ -5,7 +5,7 @@
 
 <p align="center">
 
-[[Main formal](https://www.sciencedirect.com/science/article/abs/pii/S1566253524001039)] [[Draft arxiv](https://arxiv.org/pdf/2305.10925.pdf)] 
+[Paper](https://www.sciencedirect.com/science/article/abs/pii/S1566253524001039)
 
 ![Flowchat](./imgs/main_pic.png)
 Figure 1: The flowchart of the proposed method (PLRDiff). First, we estimate the coefficient matrix $E$ from the LRHS image. Second, the LRHS image, PAN image and the
